@@ -5,6 +5,7 @@ var PORT =  19988;
 var PATH = "./html";
 
 var deployServer = http.createServer(function(request, response) {
+	
 	if(request.url.search(/deploy\/?$/i) > 0) {
 		var commands = [
 			"cd " + PATH,
