@@ -1,12 +1,12 @@
 var http = require("http");
-var exec = require("exec");
+var exec = require("child_process").execFile;
 
 var PORT =  19988;
 var PATH = "./html";
 
-var deployServer = http.createServer( function(request, response) {
+var deployServer = http.createServer(function(request, response) {
 	if(request.url.search(/deploy\/?$/i) > 0) {
-		let commands = [
+		var commands = [
 			"cd " + PATH,
 			"git pull"
 		].join(" && ");
