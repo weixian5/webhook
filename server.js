@@ -1,17 +1,17 @@
-const http = require("http");
-const exec = require("exec");
+var http = require("http");
+var exec = require("exec");
 
-const PORT = 9988;
-const PATH = "./html";
+var PORT =  19988;
+var PATH = "./html";
 
-const deployServer = http.createServer((request, response) => {
+var deployServer = http.createServer( function(request, response) {
 	if(request.url.search(/deploy\/?$/i) > 0) {
 		let commands = [
 			"cd " + PATH,
 			"git pull"
 		].join(" && ");
 
-		exec(commands, (err, out, code) => {
+		exec(commands, function(err, out, code) {
 			if(err instanceof Error) {
 				response.writeHead(500);
 				response.end("Server Internal Error.");
