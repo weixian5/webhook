@@ -1,5 +1,5 @@
 var http = require("http");
-var exec = require("child_process").execFile;
+var exec = require("exec");
 
 var PORT =  19988;
 var PATH = "./html";
