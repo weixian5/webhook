@@ -10,7 +10,7 @@ var deployServer = http.createServer(function(request, response) {
 
 		var commands = [
 			"cd " + PATH,
-			"git pull"
+			"git pull origin"
 		].join(" && ");
 
 		exec(commands, function(err, out, code) {
@@ -27,7 +27,7 @@ var deployServer = http.createServer(function(request, response) {
 			response.end("Deploy Done");
 		});
 	} else {
-		
+
 		response.writeHead(404);
 		response.end("Not Found.");
 	}
